@@ -1,0 +1,14 @@
+.Section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+  padding: 25px;
+  width: 500px;
+  border: 1px solid grey;
+  box-shadow: 1px 3px 13px 0px rgba(47, 50, 50, 0.5);
+}
+
+.title {
+  margin-top: 0;
+}
