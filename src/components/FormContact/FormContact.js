@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
 
-import s from "./FormContact.module.scss";
+import s from "./FormContact.module.css";
 import PrimeryButton from "../UI/Button";
 
 const INITIAL_STATE = {

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import PrimeryButton from '../UI/Button'
-import s from "./ContactItem.module.scss";
+import s from "./ContactItem.module.css";
 
 const ContactItem = ({ name, phone, onRemove }) => {
   return (

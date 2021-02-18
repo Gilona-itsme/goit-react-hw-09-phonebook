@@ -1,0 +1,27 @@
+.container {
+  max-width: 1170px;
+  margin: 20px auto;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.appear {
+  transform: translateX(-100%);
+}
+
+.appearActive {
+  transform: translateX(0);
+  transition: transform 500ms linear;
+}
+
+.enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.enterActive {
+  opacity: 1;
+  transform: translateX(0);
+  transform: opacity 500ms linear;
+}

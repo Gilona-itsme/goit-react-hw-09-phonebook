@@ -1,13 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
-import style from './Container.module.scss'
+import style from './Container.module.css'
 
-const Container = ({children}) => {
+const Container = ({title, children}) => {
     return (
+       
         <div className={style.container}>
-            {children}
+             <CSSTransition in={true} appear timeout={500} classNames={style} unmountOnExit>
+                 <h2 className={style.title}>{title}</h2>
+              </CSSTransition>
+                   {/* {stage => {
+                return (<CSSTransition  in={stage === 'entered'}  timeout={500} classNames={style} unmountOnExit>
+                       <>
+                         </>
+          </CSSTransition>) */}
+        {/* }} */}
+     
+      {children}
+           
         </div>
+         
+       
     );
 };
 

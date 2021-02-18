@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-//import { v4 as uuidv4 } from "uuid";
+import { CSSTransition } from "react-transition-group";
+
+import style from "./App.module.css";
 
 import Container from "./UI/Container";
 import Section from "./UI/Section";
@@ -63,26 +65,37 @@ export default class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    const { contacts, filter } = this.state;
 
     const visibleContacts = this.getVisibleContacts();
     return (
-      <Container>
-        <Section title="Phonebook">
+      <Container title="Phonebook">
+        <Section title="Add new contact">
           <FormContact
             onAddContact={this.handleNewContact}
             onCheckUnique={this.handleCheckUniqueContact}
           />
         </Section>
-        <Section title="Find contact by name">
-          <Filter value={filter} onChangeFilter={this.handleChangeFilter} />
-        </Section>
-        <Section title="Contacts">
-          <ContactList
-            contacts={visibleContacts}
-            onRemove={this.handleRemoveContact}
-          />
-        </Section>
+        {/* {contacts.length > 1 &&  */}
+        <CSSTransition
+          in={contacts.length > 1}
+          timeout={500}
+          classNames={style}
+          unmountOnExit
+        >
+          <Section title="Find contact by name">
+            <Filter value={filter} onChangeFilter={this.handleChangeFilter} />
+          </Section>
+        </CSSTransition>
+
+        {contacts.length > 0 && (
+          <Section title="Contacts">
+            <ContactList
+              contacts={visibleContacts}
+              onRemove={this.handleRemoveContact}
+            />
+          </Section>
+        )}
       </Container>
     );
   }

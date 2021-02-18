@@ -1,0 +1,39 @@
+/* .Nav {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid rgba(32, 60, 80, 0.2);
+  margin-bottom: 15px;
+}
+
+.NavLink {
+  color: #000;
+}
+
+.NavLink:last-child {
+  margin-left: 20px;
+}
+
+.NavLink_active {
+  color: plum;
+} */
+
+.appear {
+  transform: translateY(-100%);
+}
+
+.appearActive {
+  transform: translateY(0);
+  transition: transform 500ms linear;
+}
+
+.enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.enterActive {
+  opacity: 1;
+  transform: translate(0);
+  transform: opacity 500ms linear;
+}

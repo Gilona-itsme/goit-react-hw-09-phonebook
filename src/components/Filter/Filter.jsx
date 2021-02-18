@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from "./Filter.module.scss"
+import s from "./Filter.module.css"
 
 const Filter = ({ value, onChangeFilter }) => {
   return (

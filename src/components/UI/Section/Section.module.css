@@ -1,0 +1,48 @@
+.Section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px auto;
+  padding: 25px;
+  width: 500px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  box-shadow: 1px 3px 13px 0px rgba(47, 50, 50, 0.5);
+}
+
+.title {
+  margin-top: 0;
+}
+
+.appear {
+  transform: translateY(-100%);
+}
+
+.appearActive {
+  transform: translateY(0);
+  transition: transform 1000ms linear;
+}
+
+.enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.enterActive {
+  opacity: 1;
+  transform: translateX(0);
+  transform: opacity 1000ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.exit {
+  opacity: 1;
+  /* transform: scale(1); */
+  transform: translateX(0);
+}
+
+.exitActive {
+  opacity: 0;
+  /* transform: scale(0.1); */
+  transform: translateX(-100%);
+  transform: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+}
