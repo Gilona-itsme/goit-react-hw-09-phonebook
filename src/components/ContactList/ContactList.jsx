@@ -14,12 +14,12 @@ const itemMovie = {
 }
 
 const ContactList = ({ contacts, onRemove }) => {
-  // if (contacts.length === 0) return null;
+  
   return (
     
-    <TransitionGroup component='ul' className={s.list}>
+    <TransitionGroup component='ul' in={contacts.length > 0}  className={s.list}>
       {contacts.map(({ id, name, phone }) => (
-        <CSSTransition key={id}  timeout={250} classNames={itemMovie} unmountOnExit>
+        <CSSTransition key={id} in={contacts.length > 0}  timeout={250} classNames={itemMovie} unmountOnExit>
           <ContactItem  name={name} phone={phone} onRemove={() =>onRemove(id) }/>
         </CSSTransition>
       ))}

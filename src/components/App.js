@@ -88,14 +88,18 @@ export default class App extends Component {
           </Section>
         </CSSTransition>
 
-        {contacts.length > 0 && (
-          <Section title="Contacts">
-            <ContactList
-              contacts={visibleContacts}
-              onRemove={this.handleRemoveContact}
-            />
-          </Section>
-        )}
+        {/* {contacts.length > 0 && ( */}
+        <Section title="Contacts">
+          {/* {contacts.length !== 0 ? ( */}
+          <ContactList
+            contacts={visibleContacts}
+            onRemove={this.handleRemoveContact}
+          />
+          {/* ) : (
+            <h3>No contacts</h3>
+          )} */}
+        </Section>
+        {/* )} */}
       </Container>
     );
   }
