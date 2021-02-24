@@ -4,13 +4,21 @@ import {CSSTransition} from 'react-transition-group'
 import s from "./Section.module.css";
 
 const Section = ({ title, children }) => (
-  <CSSTransition  in={true}  timeout={1000} classames={s} unmountOnExit>
-    <section className={s.Section}>
+  <CSSTransition in={true} appear={true} timeout={250} classames={s} unmountOnExit>
+    {stage => {
+      return (
+ <section className={s.Section}>
         
-          <h2 className={s.title}>{title}</h2>
-          {children}
+      <h2 className={s.title}>{title}</h2>
+          <CSSTransition in={stage === "entered"} timeout={250} classames={s} unmountOnExit>
+            {children}
+      </CSSTransition>
+          
    
     </section>
+      )
+    }}
+   
   
 </CSSTransition>
     

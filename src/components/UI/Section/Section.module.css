@@ -15,34 +15,43 @@
 }
 
 .appear {
-  transform: translateY(-100%);
+  transform: translateY(-50%);
 }
 
 .appearActive {
   transform: translateY(0);
-  transition: transform 1000ms linear;
+  transition: transform 250ms ease-in-out;
 }
 
 .enter {
   opacity: 0;
-  transform: translateX(-100%);
+  transform: translateX(-20%);
 }
 
 .enterActive {
   opacity: 1;
   transform: translateX(0);
-  transform: opacity 1000ms ease-in-out, transform 250ms ease-in-out;
+  transition: all 250ms linear;
 }
 
 .exit {
   opacity: 1;
-  /* transform: scale(1); */
   transform: translateX(0);
 }
 
 .exitActive {
   opacity: 0;
-  /* transform: scale(0.1); */
-  transform: translateX(-100%);
-  transform: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  transform: translateX(-20%);
+  transition: all 250ms linear;
+}
+
+.exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.exitActive {
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 250ms ease-in-out;
 }
