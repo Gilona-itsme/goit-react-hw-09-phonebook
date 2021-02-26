@@ -1,7 +1,5 @@
-
 import React from "react";
 import Section from "../UI/Section";
-
 
 const AppBar = () => {
   return (

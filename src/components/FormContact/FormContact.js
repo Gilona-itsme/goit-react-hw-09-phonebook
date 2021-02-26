@@ -1,48 +1,50 @@
-import React, { Component } from "react";
-import { v4 as uuidv4 } from "uuid";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import { connect } from 'react-redux';
 
-import s from "./FormContact.module.css";
-import PrimeryButton from "../UI/Button";
+import s from './FormContact.module.css';
+
+import contactsActions from '../redux/contactsActions';
+import PrimeryButton from '../UI/Button';
 
 const INITIAL_STATE = {
-  name: "",
-  phone: "",
+  name: '',
+  phone: '',
 };
-
-export default class FormContact extends Component {
+class FormContact extends Component {
   state = INITIAL_STATE;
 
   loginInput = uuidv4();
 
-  handleChange = (e) => {
+  handleChange = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     const { name, phone } = this.state;
-    const { onAddContact } = this.props;
 
-    //this.props.onAddContact(this.state.name);
-    const isValidateForm = this.validateForm();
-    if (!isValidateForm) return;
-
-    onAddContact({ id: uuidv4(), name, phone });
-
-    this.resertForm();
-  };
-
-  validateForm = () => {
-    const { name, phone } = this.state;
-    const { onCheckUnique } = this.props;
-    if (!name || !phone) {
-      alert("Some filed is empty");
-      return false;
+    if (name === '') {
+      toast.error('Please enter name');
+      return;
     }
-    return onCheckUnique(name);
+
+    if (phone === '') {
+      toast.error('Please enter phone');
+      return;
+    }
+
+    if (this.props.contacts.find(items => items.name === name)) {
+      toast.error(`${name} is already in contacts`);
+      return;
+    }
+
+    this.props.onSubmit({ id: uuidv4(), name, phone });
+    this.resertForm();
   };
 
   resertForm = () => {
@@ -86,3 +88,14 @@ FormContact.propTypes = {
   name: PropTypes.string,
   phone: PropTypes.number,
 };
+
+const mapStateToProps = state => ({
+  contacts: state.contacts.items,
+});
+
+const mapDispatchProps = dispatch => ({
+  onSubmit: ({ name, phone }) =>
+    dispatch(contactsActions.addContact({ name, phone })),
+});
+
+export default connect(mapStateToProps, mapDispatchProps)(FormContact);
