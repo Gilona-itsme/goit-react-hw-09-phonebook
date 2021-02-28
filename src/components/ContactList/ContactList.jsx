@@ -18,7 +18,7 @@ const ContactList = ({ contacts,  onRemove, total }) => {
 
   return (
     <TransitionGroup component="ul" in="true" className={s.list}>
-  <CounterContacts total={total} />
+ <CounterContacts total={total} />
       {contacts &&
         (contacts.map(({ id, name, phone }) => (
           <CSSTransition
