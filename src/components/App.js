@@ -1,19 +1,19 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import routes from "../routes";
-//import Container from "./UI/Container";
+import routes from '../routes';
+import PhoneBook from '../Views/PhoneBook';
 
 const App = () => {
   return (
     <Switch>
-      {routes.map((route) => (
+      {/* {routes.map((route) => (
         <Route key={route.path} {...route} />
-      ))}
-      {/* <Route path={routes.homePage}></Route>
-        <Route path={routes.counterPage}>
-          <CounterView />
-        </Route> */}
+      ))} */}
+
+      <Route path={routes.contacts}>
+        <PhoneBook />
+      </Route>
     </Switch>
   );
 };
