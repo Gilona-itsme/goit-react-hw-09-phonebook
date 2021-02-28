@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { connect } from "react-redux";
 
 import s from "./ContactList.module.css";
 
-import contactsActions from "../redux/contactsActions";
 import ContactItem from "../ContactItem";
+import CounterContacts from '../CounterContacts';
 
 const itemMovie = {
   enter: s.enter,
@@ -15,11 +14,11 @@ const itemMovie = {
   exitActive: s.exitActive,
 };
 
-const ContactList = ({ contacts,  onRemove }) => {
+const ContactList = ({ contacts,  onRemove, total }) => {
 
   return (
     <TransitionGroup component="ul" in="true" className={s.list}>
-    
+  {contacts.length > 0 && <CounterContacts total={total} />}
       {contacts &&
         (contacts.map(({ id, name, phone }) => (
           <CSSTransition
@@ -35,7 +34,8 @@ const ContactList = ({ contacts,  onRemove }) => {
               onRemove={() => onRemove(id)}
             />
           </CSSTransition>
-        ))) }
+        )))}
+       
     </TransitionGroup>
   );
 };
@@ -54,22 +54,4 @@ ContactList.propTypes = {
   onRemove: PropTypes.func.isRequired,
 };
 
-const getVisibleContacts = (allContacts, filter) => {
- const normalizedFilter = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter)
-  );
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-  contacts: getVisibleContacts(items, filter),
-});
-
-const mapDispatchProps = (dispatch) => ({
-  onRemove: (id) => dispatch(contactsActions.deleteContact(id)),
-  onChangeFilter: (event) =>
-    dispatch(contactsActions.changeFilter(event.target.value)),
-});
-
-export default connect(mapStateToProps, mapDispatchProps)(ContactList);
+export default ContactList
