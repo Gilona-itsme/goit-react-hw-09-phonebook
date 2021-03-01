@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import contactsActions from "../redux/contactsActions";
+import contactsActions from "../../redux/contactsActions";
 
 import s from "./Filter.module.css";
 

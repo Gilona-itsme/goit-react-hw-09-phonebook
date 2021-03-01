@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import s from './FormContact.module.css';
 
-import contactsActions from '../redux/contactsActions';
+import contactsActions from '../../redux/contactsActions';
 import PrimeryButton from '../UI/Button';
 
 const INITIAL_STATE = {

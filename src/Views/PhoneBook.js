@@ -1,10 +1,8 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
-
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-
 import style from '../styles/PhoneBook.module.css';
 
 import Container from '../components/UI/Container';
