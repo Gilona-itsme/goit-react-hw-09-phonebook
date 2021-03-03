@@ -1,23 +1,16 @@
 import { connect } from 'react-redux';
-import contactsActions from '../../redux/contactsActions';
+import { deleteContact } from '../../redux/contactsOperations';
+import { changeFilter } from '../../redux/contactsActions';
 import ContactList from './ContactList';
+import { getVisibleContacts } from '../../redux/contactsSelectors';
 
-const getVisibleContacts = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter),
-  );
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-  contacts: getVisibleContacts(items, filter),
+const mapStateToProps = state => ({
+  contacts: getVisibleContacts(state),
 });
 
 const mapDispatchProps = dispatch => ({
-  onRemove: id => dispatch(contactsActions.deleteContact(id)),
-  onChangeFilter: event =>
-    dispatch(contactsActions.changeFilter(event.target.value)),
+  onRemove: id => dispatch(deleteContact(id)),
+  onChangeFilter: event => dispatch(changeFilter(event.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchProps)(ContactList);

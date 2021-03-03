@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 
-import s from './FormContact.module.css';
+import { getContacts } from '../../redux';
+import * as contactsOperations from '../../redux';
 
-import contactsActions from '../../redux/contactsActions';
+import s from './FormContact.module.css';
 import PrimeryButton from '../UI/Button';
 
 const INITIAL_STATE = {
@@ -90,12 +91,12 @@ FormContact.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  contacts: state.contacts.items,
+  contacts: getContacts(state),
 });
 
 const mapDispatchProps = dispatch => ({
   onSubmit: ({ name, phone }) =>
-    dispatch(contactsActions.addContact({ name, phone })),
+    dispatch(contactsOperations.addContact({ name, phone })),
 });
 
 export default connect(mapStateToProps, mapDispatchProps)(FormContact);
