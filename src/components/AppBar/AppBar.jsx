@@ -1,10 +1,10 @@
 import React from "react";
-import Section from "../UI/Section";
+import Navigation from "./Navigation";
 
 const AppBar = () => {
   return (
     <header className="AppBar">
-      <Section />
+     <Navigation/>
     </header>
   );
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { getContactsLength } from '../../redux';
+
 const CounterContacts = ({ total }) => (
   <div>
     <p>
@@ -15,7 +17,7 @@ CounterContacts.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  total: state.contacts.items.length,
+  total: getContactsLength(state),
 });
 
 export default connect(mapStateToProps)(CounterContacts);

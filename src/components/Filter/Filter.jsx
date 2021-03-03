@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import contactsActions from "../../redux/contactsActions";
-
-import s from "./Filter.module.css";
+import { changeFilter } from '../../redux';
+import { getFilter } from '../../redux';
+import s from './Filter.module.css';
 
 const Filter = ({ value, onChangeFilter }) => {
   return (
@@ -20,13 +20,12 @@ const Filter = ({ value, onChangeFilter }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  value: state.contacts.filter,
+const mapStateToProps = state => ({
+  value: getFilter(state),
 });
 
-const mapDispatchProps = (dispatch) => ({
-  onChangeFilter: (event) =>
-    dispatch(contactsActions.changeFilter(event.target.value)),
+const mapDispatchProps = dispatch => ({
+  onChangeFilter: event => dispatch(changeFilter(event.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchProps)(Filter);

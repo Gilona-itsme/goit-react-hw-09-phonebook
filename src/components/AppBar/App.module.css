@@ -1,4 +1,4 @@
-/* .Nav {
+.Nav {
   display: flex;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -16,7 +16,7 @@
 
 .NavLink_active {
   color: plum;
-} */
+}
 
 .appear {
   transform: translateY(-100%);

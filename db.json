@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "name": "Rosie Simpson",
+      "phone": "459-12-56",
+      "id": 1
+    },
+    {
+      "name": "Gilona",
+      "phone": "548-25-71",
+      "id": 2
+    },
+    {
+      "name": "Ilona",
+      "phone": "548-25-71",
+      "id": 3
+    }
+  ]
+}
