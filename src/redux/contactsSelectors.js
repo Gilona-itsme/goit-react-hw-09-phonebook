@@ -11,16 +11,6 @@ export const getContactsLength = state => {
   return contacts.length;
 };
 
-// export const getVisibleContacts = state => {
-//   const filter = getFilter(state);
-//   const allContacts = getContacts(state);
-//   const normalizedFilter = filter.toLowerCase();
-
-//   return allContacts.filter(({ name }) =>
-//     name.toLowerCase().includes(normalizedFilter),
-//   );
-// };
-
 export const getVisibleContacts = createSelector(
   [getContacts, getFilter],
   (allContacts, filter) => {

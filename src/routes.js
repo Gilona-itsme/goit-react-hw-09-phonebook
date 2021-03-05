@@ -1,11 +1,11 @@
-import PhoneBook from './Views/PhoneBook';
+import PhoneBookView from './Views/PhoneBookView';
 
 const routes = [
   {
     path: '/',
     label: 'contacts',
     exact: true,
-    component: PhoneBook,
+    component: PhoneBookView,
   },
 ];
 

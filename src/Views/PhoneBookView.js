@@ -13,9 +13,9 @@ import FormContact from '../components/FormContact';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
 
-class PhoneBook extends Component {
+class PhoneBookView extends Component {
   componentDidMount() {
-    this.props.getContacts();
+    this.props.fetchContacts();
   }
   render() {
     return (
@@ -25,13 +25,7 @@ class PhoneBook extends Component {
           <FormContact />
         </Section>
 
-        <CSSTransition
-          // in={contacts.length > 1}
-          in
-          timeout={500}
-          classNames={style}
-          unmountOnExit
-        >
+        <CSSTransition in timeout={500} classNames={style} unmountOnExit>
           <Section title="Find contact by name">
             <Filter />
           </Section>
@@ -51,7 +45,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getContacts: () => dispatch(contactsOperations.getContacts()),
+  fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhoneBook);
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneBookView);

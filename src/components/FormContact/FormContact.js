@@ -38,6 +38,8 @@ class FormContact extends Component {
       toast.error('Please enter phone');
       return;
     }
+    console.log(this.props.contacts);
+    console.log(this.props.contacts.items);
 
     if (this.props.contacts.find(items => items.name === name)) {
       toast.error(`${name} is already in contacts`);
