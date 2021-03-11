@@ -11,10 +11,6 @@ import {
   getContactError,
 } from './contactsActions';
 
-// http: axios.defaults.baseURL = 'http://192.168.31.66:4040';
-// "api-server": "json-server --host 192.168.31.66 --port 4040 --watch db.json"
-axios.defaults.baseURL = 'http://localhost:4040';
-
 export const fetchContacts = () => dispatch => {
   dispatch(getContactRequest());
   axios

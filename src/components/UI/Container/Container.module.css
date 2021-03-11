@@ -1,7 +1,8 @@
 .container {
-  max-width: 1170px;
+  /* max-width: 1170px; */
+  width: auto;
   margin: 20px auto;
-  text-align: center;
+  /* text-align: center; */
   padding-left: 15px;
   padding-right: 15px;
 }

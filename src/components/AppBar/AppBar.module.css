@@ -1,4 +1,4 @@
-.Nav {
+.AppBar {
   display: flex;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -6,12 +6,19 @@
   margin-bottom: 15px;
 }
 
+.AuthForm {
+  display: flex;
+  margin-right: 0;
+  align-items: center;
+  margin-left: auto;
+}
+
 .NavLink {
   color: #000;
 }
 
-.NavLink:last-child {
-  margin-left: 20px;
+.NavLink:not(:last-child) {
+  margin-right: 20px;
 }
 
 .NavLink_active {
