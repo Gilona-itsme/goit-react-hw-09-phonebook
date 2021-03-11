@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 
-import { getContacts } from '../../redux';
-import * as contactsOperations from '../../redux';
+import { getContacts } from '../../redux/contacts';
+import * as contactsOperations from '../../redux/contacts';
 
 import s from './FormContact.module.css';
 import PrimeryButton from '../UI/Button';

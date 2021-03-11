@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { ToastContainer } from 'react-toastify';
 import { connect } from 'react-redux';
-import * as contactsOperations from '../redux';
-import { getIsLoading } from '../redux';
+import * as contactsOperations from '../redux/contacts';
+import { getIsLoading } from '../redux/contacts';
 
 import 'react-toastify/dist/ReactToastify.css';
 import style from '../styles/PhoneBook.module.css';

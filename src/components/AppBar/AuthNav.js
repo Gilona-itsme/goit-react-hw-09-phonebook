@@ -5,26 +5,25 @@ import * as Routes from '../../routes';
 
 import style from './AppBar.module.css';
 
-const Navigation = () => {
+export default function AuthNav() {
   return (
-    <nav className={style.NavForm}>
+    <div className={style.AuthForm}>
       <NavLink
+        to={Routes.paths.REGISTRATION}
         exact
-        to={Routes.paths.MAIN}
         className={style.NavLink}
         activeClassName={style.NavLink_active}
       >
-        Home
+        Sing up
       </NavLink>
       <NavLink
-        to={Routes.paths.CONTACTS}
+        to={Routes.paths.LOGIN}
+        exact
         className={style.NavLink}
         activeClassName={style.NavLink_active}
       >
-        Phonebook
+        Sing in
       </NavLink>
-    </nav>
+    </div>
   );
-};
-
-export default Navigation;
+}

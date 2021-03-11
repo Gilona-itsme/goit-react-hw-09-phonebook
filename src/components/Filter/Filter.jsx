@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { changeFilter } from '../../redux';
-import { getFilter } from '../../redux';
+import { changeFilter } from '../../redux/contacts';
+import { getFilter } from '../../redux/contacts';
 import s from './Filter.module.css';
 
 const Filter = ({ value, onChangeFilter }) => {

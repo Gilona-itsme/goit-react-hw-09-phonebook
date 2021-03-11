@@ -1,17 +1,39 @@
-.Nav {
+.AppBar {
   display: flex;
   padding-top: 20px;
   padding-bottom: 30px;
   border-bottom: 2px solid rgba(32, 60, 80, 0.2);
   margin-bottom: 15px;
+  background-color: rgba(209, 195, 211, 0.2);
+}
+
+.NavForm {
+  padding-left: 20px;
+}
+
+.AuthForm {
+  display: flex;
+  margin-right: 0;
+  align-items: center;
+  margin-left: auto;
+  padding-right: 20px;
+}
+
+.Avatar {
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.UserName {
+  margin-right: 20px;
 }
 
 .NavLink {
   color: #000;
 }
 
-.NavLink:last-child {
-  margin-left: 20px;
+.NavLink:not(:last-child) {
+  margin-right: 20px;
 }
 
 .NavLink_active {

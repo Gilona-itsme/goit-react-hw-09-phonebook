@@ -1,18 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { CSSTransition } from "react-transition-group";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
-import style from "./Container.module.css";
+import style from './Container.module.css';
 
 const Container = ({ title, children }) => {
   return (
     <div className={style.container}>
       <CSSTransition
-        in={true}
+        in={title > 0}
         appear
         timeout={500}
         classNames={style}
-        unmountOnExit>
+        unmountOnExit
+      >
         <h2 className={style.title}>{title}</h2>
       </CSSTransition>
       {children}

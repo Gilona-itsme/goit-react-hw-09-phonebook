@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOperations';
-import { changeFilter } from '../../redux/contactsActions';
+import { deleteContact } from '../../redux/contacts/contactsOperations';
+import { changeFilter } from '../../redux/contacts/contactsActions';
 import ContactList from './ContactList';
-import { getVisibleContacts } from '../../redux/contactsSelectors';
+import { getVisibleContacts } from '../../redux/contacts/contactsSelectors';
 
 const mapStateToProps = state => ({
   contacts: getVisibleContacts(state),
