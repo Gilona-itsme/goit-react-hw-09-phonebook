@@ -3,12 +3,13 @@
   padding-top: 20px;
   padding-bottom: 30px;
   border-bottom: 2px solid rgba(32, 60, 80, 0.2);
-  margin-bottom: 15px;
-  background-color: rgba(209, 195, 211, 0.2);
+  background-color: rgba(198, 164, 202, 0.2);
 }
 
 .NavForm {
   padding-left: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .AuthForm {
@@ -26,6 +27,7 @@
 
 .UserName {
   margin-right: 20px;
+  font-weight: 500;
 }
 
 .NavLink {
@@ -37,7 +39,7 @@
 }
 
 .NavLink_active {
-  color: plum;
+  color: rgb(216, 92, 216);
 }
 
 .appear {
@@ -51,11 +53,11 @@
 
 .enter {
   opacity: 0;
-  transform: translateX(100%);
+  transform: translateX(-100%);
 }
 
 .enterActive {
   opacity: 1;
   transform: translate(0);
-  transform: opacity 500ms linear;
+  transform: all 500ms linear;
 }

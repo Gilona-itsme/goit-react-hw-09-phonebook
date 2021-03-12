@@ -5,11 +5,9 @@ import { connect } from 'react-redux';
 import { getContactsLength } from '../../redux/contacts';
 
 const CounterContacts = ({ total }) => (
-  <div>
-    <p>
-      <span>Total {total} contacts</span>
-    </p>
-  </div>
+  <>
+    <p>You have {total} contacts</p>
+  </>
 );
 
 CounterContacts.propTypes = {

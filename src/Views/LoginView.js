@@ -18,7 +18,7 @@ export class LoginView extends Component {
   };
 
   handleSubmit = event => {
-    event.preventdefault();
+    event.preventDefault();
     this.props.onLogin(this.state);
     this.setState({ email: '', password: '' });
   };
@@ -58,14 +58,8 @@ LoginView.propTypes = {
   password: PropTypes.string,
 };
 
-// const mapStateToProps = (state) => ({
-
-// })
-
 const mapDispatchToProps = {
   onLogin: logIn,
 };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(LoginView)
 
 export default connect(null, mapDispatchToProps)(LoginView);

@@ -14,8 +14,8 @@ const Filter = ({ value, onChangeFilter }) => {
         value={value}
         onChange={onChangeFilter}
         name="filter"
-        placeholder="Enter name for Search"
-      ></input>
+        placeholder="Find contact by name"
+      />
     </div>
   );
 };

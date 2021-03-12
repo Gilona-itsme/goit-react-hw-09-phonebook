@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import { ToastContainer } from 'react-toastify';
 import { connect } from 'react-redux';
 import * as contactsOperations from '../redux/contacts';
@@ -19,23 +18,22 @@ class PhoneBookView extends Component {
   }
   render() {
     return (
-      <>
+      <div className={style.Page}>
         <ToastContainer position="top-right" />
         <Section title="Add new contact">
           <FormContact />
+          <Filter />
         </Section>
 
-        <CSSTransition in timeout={500} classNames={style} unmountOnExit>
-          <Section title="Find contact by name">
-            <Filter />
-          </Section>
-        </CSSTransition>
+        {/* <CSSTransition in timeout={500} classNames={style} unmountOnExit>
+          <Section title="Find contact by name"></Section>
+        </CSSTransition> */}
 
         <Section title="Contacts">
           {this.props.isLoadingContacts && <h1>...is loading</h1>}
           <ContactList />
         </Section>
-      </>
+      </div>
     );
   }
 }

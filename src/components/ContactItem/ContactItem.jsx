@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import PrimeryButton from "../UI/Button";
-import s from "./ContactItem.module.css";
+import PrimeryButton from '../UI/Button';
+import s from './ContactItem.module.css';
 
-const ContactItem = ({ name, phone, onRemove }) => {
+const ContactItem = ({ name, number, onRemove }) => {
   return (
     <li className={s.item}>
       <p className={s.contact}>
         <span className={s.name}>{name}</span>:
-        <span className={s.phone}>{phone}</span>
-        <PrimeryButton className={s.button} type="button" onClick={onRemove} >
+        <span className={s.phone}>{number}</span>
+        <PrimeryButton className={s.button} type="button" onClick={onRemove}>
           Delete
         </PrimeryButton>
       </p>
@@ -20,7 +20,7 @@ const ContactItem = ({ name, phone, onRemove }) => {
 
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   onRemove: PropTypes.func.isRequired,
 };
 

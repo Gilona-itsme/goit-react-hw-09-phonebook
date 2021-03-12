@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
 import style from './AppBar.module.css';
 import Button from '../UI/Button';
@@ -9,13 +10,21 @@ import { getUsername } from '../../redux/auth/authSelectors';
 import { logOut } from '../../redux/auth/authOperations';
 
 const UserMenu = ({ avatar, name, onLogout }) => (
-  <div className={style.AuthForm}>
-    <img src={defaultAvatar} alt={name} width="32" className={style.Avatar} />
-    <span className={style.UserName}>Hi, {name} </span>
-    <Button type="button" onClick={onLogout}>
-      Logout
-    </Button>
-  </div>
+  <CSSTransition
+    in={true}
+    appear={true}
+    timeout={500}
+    classNames={style}
+    unmountOnExit
+  >
+    <div className={style.AuthForm}>
+      <img src={defaultAvatar} alt={name} width="32" className={style.Avatar} />
+      <span className={style.UserName}>Hi, {name} </span>
+      <Button type="button" onClick={onLogout}>
+        Logout
+      </Button>
+    </div>
+  </CSSTransition>
 );
 
 UserMenu.propTypes = {
@@ -25,6 +34,7 @@ UserMenu.propTypes = {
 };
 const mapStateToProps = state => ({
   name: getUsername(state),
+  avatar: defaultAvatar,
 });
 
 const mapDispatchToProps = {

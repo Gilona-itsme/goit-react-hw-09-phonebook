@@ -12,7 +12,7 @@ import PrimeryButton from '../UI/Button';
 
 const INITIAL_STATE = {
   name: '',
-  phone: '',
+  number: '',
 };
 class FormContact extends Component {
   state = INITIAL_STATE;
@@ -27,26 +27,24 @@ class FormContact extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const { name, phone } = this.state;
+    const { name, number } = this.state;
 
     if (name === '') {
       toast.error('Please enter name');
       return;
     }
 
-    if (phone === '') {
+    if (number === '') {
       toast.error('Please enter phone');
       return;
     }
-    console.log(this.props.contacts);
-    console.log(this.props.contacts.items);
 
     if (this.props.contacts.find(items => items.name === name)) {
       toast.error(`${name} is already in contacts`);
       return;
     }
 
-    this.props.onSubmit({ id: uuidv4(), name, phone });
+    this.props.onSubmit({ id: uuidv4(), name, number });
     this.resertForm();
   };
 
@@ -55,7 +53,7 @@ class FormContact extends Component {
   };
 
   render() {
-    const { name, phone } = this.state;
+    const { name, number } = this.state;
     return (
       <form className={s.form} onSubmit={this.handleSubmit}>
         <label className={s.label} htmlFor={this.loginInput}>
@@ -71,17 +69,19 @@ class FormContact extends Component {
           />
         </label>
         <label className={s.label} htmlFor={this.loginInput}>
-          Number
+          Phone
           <input
             className={s.input}
             type="tel"
-            value={phone}
-            name="phone"
+            value={number}
+            name="number"
             onChange={this.handleChange}
             placeholder="Enter phone, please"
           />
         </label>
-        <PrimeryButton type="submit">Add Contact</PrimeryButton>
+        <PrimeryButton type="submit" className={s.button}>
+          Add Contact
+        </PrimeryButton>
       </form>
     );
   }
@@ -89,7 +89,7 @@ class FormContact extends Component {
 
 FormContact.propTypes = {
   name: PropTypes.string,
-  phone: PropTypes.number,
+  number: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
@@ -97,8 +97,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchProps = dispatch => ({
-  onSubmit: ({ name, phone }) =>
-    dispatch(contactsOperations.addContact({ name, phone })),
+  onSubmit: ({ name, number }) =>
+    dispatch(contactsOperations.addContact({ name, number })),
 });
 
 export default connect(mapStateToProps, mapDispatchProps)(FormContact);

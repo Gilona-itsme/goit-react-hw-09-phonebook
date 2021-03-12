@@ -1,4 +1,5 @@
 import React from 'react';
+//import { CSSTransition } from 'react-transition-group';
 
 const styles = {
   container: {
@@ -6,11 +7,13 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    // backgroundColor: 'rgb(201, 167, 221)',
   },
   title: {
-    fontWeight: 500,
-    fontSize: 48,
+    fontWeight: 900,
+    fontSize: 56,
     textAlign: 'center',
+    color: 'rgb(53, 13, 54)',
   },
 };
 
@@ -19,7 +22,7 @@ const HomeView = () => (
     <h1 style={styles.title}>
       Wellcome{' '}
       <span role="img" aria-label="Иконка приветствия">
-        💁‍♀️
+        💁‍♀️ 📲
       </span>
     </h1>
   </div>

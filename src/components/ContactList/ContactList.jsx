@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import s from "./ContactList.module.css";
+import s from './ContactList.module.css';
 
-import ContactItem from "../ContactItem";
+import ContactItem from '../ContactItem';
 import CounterContacts from '../CounterContacts';
 
 const itemMovie = {
@@ -14,13 +14,12 @@ const itemMovie = {
   exitActive: s.exitActive,
 };
 
-const ContactList = ({ contacts,  onRemove, total }) => {
-
+const ContactList = ({ contacts, onRemove, total }) => {
   return (
     <TransitionGroup component="ul" in="true" className={s.list}>
- <CounterContacts total={total} />
+      <CounterContacts total={total} />
       {contacts &&
-        (contacts.map(({ id, name, phone }) => (
+        contacts.map(({ id, name, number }) => (
           <CSSTransition
             key={id}
             in={contacts.length > 0}
@@ -30,12 +29,11 @@ const ContactList = ({ contacts,  onRemove, total }) => {
           >
             <ContactItem
               name={name}
-              phone={phone}
+              number={number}
               onRemove={() => onRemove(id)}
             />
           </CSSTransition>
-        )))}
-       
+        ))}
     </TransitionGroup>
   );
 };
@@ -46,12 +44,12 @@ ContactList.propTypes = {
       PropTypes.exact({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        phone: PropTypes.number.isRequired,
-      })
+        number: PropTypes.number.isRequired,
+      }),
     ),
     PropTypes.array,
   ]),
   onRemove: PropTypes.func.isRequired,
 };
 
-export default ContactList
+export default ContactList;

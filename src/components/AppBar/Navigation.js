@@ -1,30 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import * as Routes from '../../routes';
+import routes from '../../routes';
+import { getIsAuthenticated } from '../../redux/auth/authSelectors';
 
 import style from './AppBar.module.css';
 
-const Navigation = () => {
+const Navigation = ({ isAuthenticated }) => {
   return (
     <nav className={style.NavForm}>
       <NavLink
         exact
-        to={Routes.paths.MAIN}
+        to={routes.MAIN}
         className={style.NavLink}
         activeClassName={style.NavLink_active}
       >
         Home
       </NavLink>
-      <NavLink
-        to={Routes.paths.CONTACTS}
-        className={style.NavLink}
-        activeClassName={style.NavLink_active}
-      >
-        Phonebook
-      </NavLink>
+
+      {isAuthenticated && (
+        <NavLink
+          to={routes.CONTACTS}
+          className={style.NavLink}
+          activeClassName={style.NavLink_active}
+        >
+          Phonebook
+        </NavLink>
+      )}
     </nav>
   );
 };
 
-export default Navigation;
+const mapStateToProps = state => ({
+  isAuthenticated: getIsAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(Navigation);
