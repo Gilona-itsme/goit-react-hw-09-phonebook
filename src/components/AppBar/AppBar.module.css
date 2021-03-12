@@ -3,6 +3,7 @@
   padding: 20px;
   border-bottom: 2px solid rgba(32, 60, 80, 0.2);
   margin-bottom: 15px;
+  background-color: rgb(226, 188, 219);
 }
 
 .AuthForm {
@@ -31,7 +32,9 @@
 }
 
 .NavLink_active {
-  color: plum;
+  font-weight: bold;
+  color: rgb(92, 51, 92);
+  text-decoration: underline;
 }
 
 .appear {
