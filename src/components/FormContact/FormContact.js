@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import IconButton from '../UI/IconButton';
 import Modal from '../Modal/index';
 import ChangeFormContact from '../ChangeFormContact/ChangeFormContact';
-import { ReactComponent as AddIcon } from '../icons/add.svg';
+import { ReactComponent as AddIcon } from '../UI/icons/add.svg';
 
 import s from './FormContact.module.css';
 

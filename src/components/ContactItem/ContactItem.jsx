@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
-import { ReactComponent as UpdateIcon } from '../icons/pencil.svg';
+import { ReactComponent as UpdateIcon } from '../UI/icons/pencil.svg';
 import IconButton from '../UI/IconButton';
-import { ReactComponent as IconDelete } from '../icons/delete.svg';
+import { ReactComponent as IconDelete } from '../UI/icons/delete.svg';
 
 import ChangeFormContact from '../ChangeFormContact/ChangeFormContact';
 import Modal from '../Modal';
