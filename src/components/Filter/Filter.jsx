@@ -1,11 +1,21 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { changeFilter } from '../../redux/contacts';
 import { getFilter } from '../../redux/contacts';
 import s from './Filter.module.css';
 
-const Filter = ({ value, onChangeFilter }) => {
+export default function Filter() {
+  const dispatch = useDispatch();
+  const value = useSelector(getFilter);
+
+  const onChangeFilter = useCallback(
+    event => {
+      dispatch(changeFilter(event.target.value));
+    },
+    [dispatch],
+  );
+
   return (
     <div className={s.filter}>
       <input
@@ -18,14 +28,29 @@ const Filter = ({ value, onChangeFilter }) => {
       />
     </div>
   );
-};
+}
 
-const mapStateToProps = state => ({
-  value: getFilter(state),
-});
+// const Filter = ({ value, onChangeFilter }) => {
+//   return (
+//     <div className={s.filter}>
+//       <input
+//         className={s.input}
+//         type="text"
+//         value={value}
+//         onChange={onChangeFilter}
+//         name="filter"
+//         placeholder="Find contact by name"
+//       />
+//     </div>
+//   );
+// };
 
-const mapDispatchProps = dispatch => ({
-  onChangeFilter: event => dispatch(changeFilter(event.target.value)),
-});
+// const mapStateToProps = state => ({
+//   value: getFilter(state),
+// });
 
-export default connect(mapStateToProps, mapDispatchProps)(Filter);
+// const mapDispatchProps = dispatch => ({
+//   onChangeFilter: event => dispatch(changeFilter(event.target.value)),
+// });
+
+// export default connect(mapStateToProps, mapDispatchProps)(Filter);

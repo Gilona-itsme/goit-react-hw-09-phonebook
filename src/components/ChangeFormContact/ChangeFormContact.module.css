@@ -1,7 +1,3 @@
-/* .formBox {
-  margin: 0;
-} */
-
 .form {
   display: block;
   flex-direction: column;
@@ -17,8 +13,7 @@
 .input {
   margin-left: 12px;
 }
-/* 
+
 .button {
-  margin-left: 0;
   display: flex;
-} */
+}

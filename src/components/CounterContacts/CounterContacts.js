@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { getContactsLength } from '../../redux/contacts';
 
-const CounterContacts = ({ total }) => (
-  <>
-    <p>You have {total} contacts</p>
-  </>
-);
+export default function CounterContacts() {
+  const total = useSelector(getContactsLength);
+
+  return <p>You have {total} contacts</p>;
+}
 
 CounterContacts.propTypes = {
-  total: PropTypes.number.isRequired,
+  total: PropTypes.number,
 };
 
-const mapStateToProps = state => ({
-  total: getContactsLength(state),
-});
+// const CounterContacts = ({ total }) => (
+//   <>
+//     <p>You have {total} contacts</p>
+//   </>
+// );
 
-export default connect(mapStateToProps)(CounterContacts);
+// const mapStateToProps = state => ({
+//   total: getContactsLength(state),
+// });
+
+// export default connect(mapStateToProps)(CounterContacts);

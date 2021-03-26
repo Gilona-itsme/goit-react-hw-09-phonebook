@@ -1,5 +1,5 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "goit-react-hw-09-phonebook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,7 +20,6 @@
     "react-toastify": "^7.0.3",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
-    "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "web-vitals": "^0.2.4"
