@@ -7,12 +7,12 @@ export default function MoviesLoading() {
       role="alert"
       type="Circles"
       color="#9982af"
-      width={40}
-      height={40}
+      width={10}
+      height={10}
       style={{
         display: 'flex',
         justifyContent: 'center',
-        margin: '70px',
+        margin: '5px',
       }}
     />
   );

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 import s from './ContactList.module.css';
 import ContactItem from '../ContactItem';
-import CounterContacts from '../CounterContacts';
+
 import { deleteContact, getVisibleContacts } from '../../redux/contacts';
 
 const itemMovie = {
@@ -16,10 +16,11 @@ const itemMovie = {
   exitActive: s.exitActive,
 };
 
-export default function ContactList({ total, name }) {
+export default function ContactList({ name }) {
   const dispatch = useDispatch();
   const contacts = useSelector(getVisibleContacts);
 
+  // const isLoadingContacts = true;
   const onRemove = useCallback(
     id => {
       dispatch(deleteContact(id));
@@ -30,7 +31,6 @@ export default function ContactList({ total, name }) {
 
   return (
     <TransitionGroup component="ul" in="true" className={s.list}>
-      <CounterContacts total={total} />
       {contacts &&
         contacts.map(({ id, name, number }) => (
           <CSSTransition
@@ -44,7 +44,7 @@ export default function ContactList({ total, name }) {
               name={name}
               number={number}
               onRemove={() => onRemove(id)}
-              onClickOpen={id}
+              ContactId={id}
             />
           </CSSTransition>
         ))}

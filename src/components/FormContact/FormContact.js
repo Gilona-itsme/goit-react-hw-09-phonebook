@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
 import IconButton from '../UI/IconButton';
 import Modal from '../Modal/index';
@@ -21,20 +22,19 @@ export default function FormContact() {
 
   return (
     <div className={s.formBox}>
-      {showModal ? (
+      <IconButton
+        type="button"
+        onClick={toggleModal}
+        aria-label="Add task"
+        className={s.button}
+      >
+        <AddIcon width="40" height="40" fill="#fff" />
+      </IconButton>
+      <CSSTransition in={showModal} unmountOnExit classNames={s} timeout={500}>
         <Modal onClose={toggleModal}>
           <ChangeFormContact onSave={toggleModal} />
         </Modal>
-      ) : (
-        <IconButton
-          type="button"
-          onClick={toggleModal}
-          aria-label="Add task"
-          className={s.button}
-        >
-          <AddIcon width="40" height="40" fill="#fff" />
-        </IconButton>
-      )}
+      </CSSTransition>
     </div>
   );
 }

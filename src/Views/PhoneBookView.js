@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts, getIsLoading } from '../redux/contacts';
+import { useDispatch } from 'react-redux';
+import { fetchContacts } from '../redux/contacts';
 
 import 'react-toastify/dist/ReactToastify.css';
 import style from '../styles/PhoneBook.module.css';
@@ -10,11 +10,11 @@ import Section from '../components/UI/Section';
 import FormContact from '../components/FormContact';
 import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
-import Loader from '../components/Loader';
+import CounterContacts from '../components/CounterContacts';
 
-export default function PhoneBookView() {
+export default function PhoneBookView(total) {
   const dispatch = useDispatch();
-  const isLoadingContacts = useSelector(getIsLoading);
+  //const isLoadingContacts = useSelector(getIsLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -25,12 +25,10 @@ export default function PhoneBookView() {
       <ToastContainer position="top-right" />
       <Section title="Add new contact">
         <FormContact />
+        <CounterContacts total={total} />
         <Filter />
       </Section>
-
-      <Section title="Contacts">
-        {isLoadingContacts ? <Loader /> : <ContactList />}
-      </Section>
+      <ContactList />
     </div>
   );
 }

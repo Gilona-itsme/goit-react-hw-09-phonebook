@@ -17,8 +17,21 @@
 .input {
   margin-left: 12px;
 }
-/* 
-.button {
-  margin-left: 0;
-  display: flex;
-} */
+
+.enter {
+  opacity: 0;
+}
+
+.enterActive {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.exit {
+  opacity: 1;
+}
+
+.exitActive {
+  opacity: 0;
+  transition: opacity 500ms linear;
+}

@@ -18,13 +18,14 @@ export default function Filter() {
 
   return (
     <div className={s.filter}>
+      <p className={s.title}>Find contact by name</p>
       <input
         className={s.input}
         type="text"
         value={value}
         onChange={onChangeFilter}
         name="filter"
-        placeholder="Find contact by name"
+        placeholder="..."
       />
     </div>
   );

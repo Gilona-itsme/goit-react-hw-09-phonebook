@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
 import { ReactComponent as UpdateIcon } from '../UI/icons/pencil.svg';
 import IconButton from '../UI/IconButton';
@@ -10,12 +11,12 @@ import Modal from '../Modal';
 
 import s from './ContactItem.module.css';
 
-const ContactItem = ({ name, number, onRemove, onClickOpen }) => {
+const ContactItem = ({ name, number, onRemove, ContactId }) => {
   const [showModal, setShowModal] = useState(false);
   const [contactItem, setContactItem] = useState(null);
 
   const handleItemClick = () => {
-    setContactItem({ name, number, id: onClickOpen });
+    setContactItem({ name, number, id: ContactId });
   };
 
   const toggleModal = useCallback(() => {
@@ -24,24 +25,29 @@ const ContactItem = ({ name, number, onRemove, onClickOpen }) => {
 
   return (
     <>
-      <li className={s.item} onClick={handleItemClick}>
+      <li className={s.items} onClick={handleItemClick}>
         <p className={s.contact}>
           <span className={s.name}>{name}</span>:
           <span className={s.phone}>{number}</span>
-          <span className={s.buttonBox}>
-            <IconButton type="button" aria-label="Updata" onClick={toggleModal}>
-              <UpdateIcon width="25" height="25" fill="#fff" />
-            </IconButton>
-            <IconButton type="button" onClick={onRemove} aria-label="Delete">
-              <IconDelete width="25" height="25" fill="#fff" />
-            </IconButton>
-          </span>
-          {showModal && (
-            <Modal onClose={toggleModal}>
-              <ChangeFormContact onSave={toggleModal} data={contactItem} />
-            </Modal>
-          )}
         </p>
+        <span className={s.buttonBox}>
+          <IconButton type="button" aria-label="Updata" onClick={toggleModal}>
+            <UpdateIcon width="25" height="25" fill="#fff" />
+          </IconButton>
+          <IconButton type="button" onClick={onRemove} aria-label="Delete">
+            <IconDelete width="25" height="25" fill="#fff" />
+          </IconButton>
+        </span>
+        <CSSTransition
+          in={showModal}
+          unmountOnExit
+          classNames={s}
+          timeout={500}
+        >
+          <Modal onClose={toggleModal}>
+            <ChangeFormContact onSave={toggleModal} data={contactItem} />
+          </Modal>
+        </CSSTransition>
       </li>
     </>
   );

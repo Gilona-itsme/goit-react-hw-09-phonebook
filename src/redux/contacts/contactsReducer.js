@@ -20,9 +20,9 @@ import {
 const items = createReducer([], {
   [getContactSuccess]: (_, { payload }) => payload,
   [addContactSuccess]: (state, { payload }) => [...state, payload],
-  // [changeContactSuccess]: (state, { payload }) =>
-  //   state.map(contact => (contact.id === payload.id ? payload : contact)),
-  [changeContactSuccess]: (state, { payload }) => [...state, payload],
+  [changeContactSuccess]: (state, { payload }) =>
+    state.map(contact => (contact.id === payload.id ? payload : contact)),
+  // [changeContactSuccess]: (state, { payload }) => [...state, payload],
   [deleteContactSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
@@ -63,6 +63,7 @@ const filter = createReducer('', {
 
 const changeContact = createReducer(null, {
   [setChangeContact]: (_, { payload }) => payload,
+  [changeContactSuccess]: () => null,
 });
 
 export default combineReducers({

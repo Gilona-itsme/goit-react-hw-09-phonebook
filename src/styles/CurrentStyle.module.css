@@ -4,7 +4,8 @@ body {
     monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(245, 240, 245);
+  /* background-color: rgb(245, 240, 245); */
+  background-image: url(../components/UI/images/diary-3300606.jpg);
 }
 
 a {

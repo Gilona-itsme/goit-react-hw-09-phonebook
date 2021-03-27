@@ -7,11 +7,11 @@ import { getContactsLength } from '../../redux/contacts';
 export default function CounterContacts() {
   const total = useSelector(getContactsLength);
 
-  return <p>You have {total} contacts</p>;
+  return <p style={{ marginTop: 10 }}>You have {total} contacts</p>;
 }
 
 CounterContacts.propTypes = {
-  total: PropTypes.number,
+  total: PropTypes.object,
 };
 
 // const CounterContacts = ({ total }) => (
